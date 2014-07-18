@@ -32,6 +32,22 @@ group :development do
   gem 'spring'
 end
 
+group :test, :development do 
+  gem 'byebug'
+  gem 'rspec-rails', '~> 3.0'
+  gem 'rspec-collection_matchers'
+  # To generate sample data
+  gem "faker"
+  # rspec command for Spring.
+  gem "spring-commands-rspec"
+end
+
+group :test do 
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
+  gem 'capybara'
+  gem 'simplecov'
+end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
