@@ -5,7 +5,9 @@ class Admin < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   before_create :set_default_role
+  belongs_to :role
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username
+  attr_accessible :role, :role_id
 
   private
     def set_default_role

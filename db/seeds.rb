@@ -17,7 +17,11 @@ admins = [
   }
 ]
 
-# admins.each do |a|
-#   Admin.find_or_create_by({email: a[:email], username: a[:username], password: '1qazxsw2'})
-# end
+admins.each do |a|
+  admin = Admin.find_by_email a[:email]
+  if admin
+  else
+    Admin.new({email: a[:email], username: a[:username], password: '1qazxsw2'})
+  end
+end
 
