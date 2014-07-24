@@ -16,6 +16,13 @@ gem 'paper_trail', '~> 3.0.3'
 gem 'rails_admin', '~> 0.6.2'
 # Mass-assignment protection
 gem 'protected_attributes'
+
+# Soft-delete
+gem 'paranoia', '~> 2.0.2'
+gem 'paranoia_uniqueness_validator', '~> 1.0.1'
+
+# HTML Abstraction Markup Language
+gem 'haml-rails'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -38,12 +45,13 @@ end
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 group :development do 
+  gem 'pry-rails'
   gem 'spring'
 end
 
 group :test, :development do 
   gem 'byebug'
-  gem 'rspec-rails', '~> 3.0'
+  gem 'rspec-rails',  '~> 3.0.0'
   gem 'rspec-collection_matchers'
   # To generate sample data
   gem "faker"
