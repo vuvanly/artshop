@@ -9,14 +9,17 @@
 #
 
 class Role < ActiveRecord::Base
-  has_many :users
-  has_many :admins
+  has_many :users, dependent: :restrict_with_error
+  has_many :admins, dependent: :restrict_with_error
 
   ADMIN_ROLE = ['admin', 'mod']
 
   USER_ROLE = ['registered', 'banned']
 
-  def self.roles 
-    ADMIN_ROLE + USER_ROLE
+  # Class methods
+  class << self
+    def roles
+      ADMIN_ROLE + USER_ROLE
+    end
   end
 end
