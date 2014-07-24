@@ -47,6 +47,8 @@ end
 group :development do 
   gem 'pry-rails'
   gem 'spring'
+  # For models annotation
+  gem 'annotate', ">= 2.6.2"
 end
 
 group :test, :development do 
