@@ -7,8 +7,14 @@ gem 'rake', '10.3.2'
 gem 'pg', '~> 0.17.1'
 # For authentication
 gem 'devise', '~> 3.2.3'
-# Use SCSS for stylesheets
+# Authorization
 gem 'cancan'
+# Track changes to your models' data
+gem 'paper_trail', '~> 3.0.3'
+
+# CMS
+gem 'rails_admin', '~> 0.6.2'
+# Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
