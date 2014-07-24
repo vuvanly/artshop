@@ -100,6 +100,8 @@ GEM
       activesupport (>= 3.0, < 5.0)
     pg (0.17.1)
     polyglot (0.3.5)
+    protected_attributes (1.0.8)
+      activemodel (>= 4.0.1, < 5.0)
     rack (1.5.2)
     rack-pjax (0.7.0)
       nokogiri (~> 1.5)
@@ -219,6 +221,7 @@ DEPENDENCIES
   jquery-rails
   paper_trail (~> 3.0.3)
   pg (~> 0.17.1)
+  protected_attributes
   rails (= 4.1.2)
   rails_admin (~> 0.6.2)
   rake (= 10.3.2)

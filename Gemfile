@@ -14,6 +14,8 @@ gem 'paper_trail', '~> 3.0.3'
 
 # CMS
 gem 'rails_admin', '~> 0.6.2'
+# Mass-assignment protection
+gem 'protected_attributes'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
