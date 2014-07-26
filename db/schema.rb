@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140726145614) do
+ActiveRecord::Schema.define(version: 20140726154315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,11 +48,52 @@ ActiveRecord::Schema.define(version: 20140726145614) do
     t.uuid     "attachable_id"
   end
 
-  create_table "roles", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
-    t.string   "name"
+  create_table "product_categories", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+    t.string   "name",                     null: false
+    t.string   "slug"
+    t.text     "description"
+    t.integer  "position",    default: -1
+    t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "product_categories", ["slug"], name: "index_product_categories_on_slug", using: :btree
+
+  create_table "product_types", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+    t.string   "name",                     null: false
+    t.string   "slug"
+    t.text     "description"
+    t.integer  "position",    default: -1
+    t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "product_types", ["slug"], name: "index_product_types_on_slug", using: :btree
+
+  create_table "products", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+    t.uuid     "product_type_id"
+    t.uuid     "product_category_id"
+    t.string   "name",                null: false
+    t.string   "slug"
+    t.text     "short_desc"
+    t.text     "description"
+    t.float    "price"
+    t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "products", ["slug"], name: "index_products_on_slug", using: :btree
+
+  create_table "roles", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
 
   create_table "tests", force: true do |t|
     t.datetime "created_at"

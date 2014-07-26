@@ -12,6 +12,8 @@ class Role < ActiveRecord::Base
   has_many :users, dependent: :restrict_with_error
   has_many :admins, dependent: :restrict_with_error
 
+  attr_accessible :name
+
   ADMIN_ROLE = ['admin', 'mod']
 
   USER_ROLE = ['registered', 'banned']
