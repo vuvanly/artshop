@@ -17,6 +17,8 @@ gem 'rails_admin', '~> 0.6.2'
 # Mass-assignment protection
 gem 'protected_attributes'
 
+gem "paperclip", "~> 4.1.1"
+
 # Soft-delete
 gem 'paranoia', '~> 2.0.2'
 gem 'paranoia_uniqueness_validator', '~> 1.0.1'
