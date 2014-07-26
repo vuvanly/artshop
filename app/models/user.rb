@@ -1,4 +1,4 @@
-# == Schema Information
+ :confirmable# == Schema Information
 #
 # Table name: users
 #
@@ -24,9 +24,15 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  GENDERS = %w(male female)
 
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+
+  # Setup accessible
+  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :name, :phone, :username, :authentications
+  
   belongs_to :role
 
   before_create :set_default_role
