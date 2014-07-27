@@ -24,4 +24,7 @@ class Product < ActiveRecord::Base
   has_one :discount
   belongs_to :product_category
   belongs_to :product_type
+
+  include ::SharedMethods::Sluggable
+  slugged :name
 end

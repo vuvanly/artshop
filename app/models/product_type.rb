@@ -17,4 +17,7 @@ class ProductType < ActiveRecord::Base
   attr_accessible :name, :slug, :position, :description
 
   has_many :products
+
+  include ::SharedMethods::Sluggable
+  slugged :name
 end
